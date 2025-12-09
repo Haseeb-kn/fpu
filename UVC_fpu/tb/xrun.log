@@ -1,0 +1,687 @@
+xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s006: Started on Dec 09, 2025 at 18:24:42 PKT
+xrun
+	-sv
+	-timescale 1ns/1ps
+	-f run.f
+		-64
+		-uvmhome /home/cc/mnt/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d
+		-incdir /home/cc/fpu_uvm/UVC_fpu/tb/sv
+		-incdir /home/cc/fpu_uvm/UVC_fpu/tb/tb
+		-incdir /home/cc/fpu_uvm/rtl
+		/home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv
+		/home/cc/fpu_uvm/UVC_fpu/tb/fpu_if.sv
+		/home/cc/fpu_uvm/rtl/top_core.sv
+		/home/cc/fpu_uvm/UVC_fpu/tb/fpu_top.sv
+		+UVM_TESTNAME=top_core_base_test
+		+UVM_VERBOSITY=UVM_LOW
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_LOW
+
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /home/cc/mnt/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d
+DEFINE std       ./STD
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+xmvlog: *W,NOTIND: unable to access -INCDIR /home/cc/fpu_uvm/UVC_fpu/tb/sv (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /home/cc/fpu_uvm/UVC_fpu/tb/tb (No such file or directory).
+DEFINE std       ./STD
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xmvlog: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+xmvlog: *W,NOTIND: unable to access -INCDIR /home/cc/fpu_uvm/UVC_fpu/tb/sv (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR /home/cc/fpu_uvm/UVC_fpu/tb/tb (No such file or directory).
+file: /home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv
+    `include "type_enum.sv"
+                          |
+xmvlog: *E,COFILX (/home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv,6|26): cannot open include file 'type_enum.sv'.
+    `include "fpu_packet.sv"
+                           |
+xmvlog: *E,COFILX (/home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv,9|27): cannot open include file 'fpu_packet.sv'.
+    `include "fpu_seqs.sv"
+                         |
+xmvlog: *E,COFILX (/home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv,10|25): cannot open include file 'fpu_seqs.sv'.
+    `include "fpu_driver.sv"
+                           |
+xmvlog: *E,COFILX (/home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv,11|27): cannot open include file 'fpu_driver.sv'.
+    `include "fpu_moniter.sv"
+                            |
+xmvlog: *E,COFILX (/home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv,12|28): cannot open include file 'fpu_moniter.sv'.
+    `include "fpu_agent.sv"
+                          |
+xmvlog: *E,COFILX (/home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv,13|26): cannot open include file 'fpu_agent.sv'.
+    `include "fpu_scoreboard.sv"
+                               |
+xmvlog: *E,COFILX (/home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv,14|31): cannot open include file 'fpu_scoreboard.sv'.
+    `include "fpu_coverage.sv"
+                             |
+xmvlog: *E,COFILX (/home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv,15|29): cannot open include file 'fpu_coverage.sv'.
+    `include "fpu_env.sv"
+                        |
+xmvlog: *E,COFILX (/home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv,16|24): cannot open include file 'fpu_env.sv'.
+	package worklib.fpu_pkg:sv
+		errors: 9, warnings: 0
+file: /home/cc/fpu_uvm/UVC_fpu/tb/fpu_if.sv
+	interface worklib.top_core_if:sv
+		errors: 0, warnings: 0
+file: /home/cc/fpu_uvm/rtl/top_core.sv
+	module worklib.alu_logic:sv
+		errors: 0, warnings: 0
+	module worklib.branch_comp:sv
+		errors: 0, warnings: 0
+	module worklib.control:sv
+		errors: 0, warnings: 0
+	module worklib.csr_compute:sv
+		errors: 0, warnings: 0
+	module worklib.cs_reg:sv
+		errors: 0, warnings: 0
+	module worklib.divider64:sv
+		errors: 0, warnings: 0
+	module worklib.divider:sv
+		errors: 0, warnings: 0
+	module worklib.mul_2cycle:sv
+		errors: 0, warnings: 0
+	module worklib.sqrt:sv
+		errors: 0, warnings: 0
+	module worklib.fpu_add_sub:sv
+		errors: 0, warnings: 0
+	module worklib.fpu_mul:sv
+		errors: 0, warnings: 0
+	module worklib.fpu_div:sv
+		errors: 0, warnings: 0
+	module worklib.fpu_fma:sv
+		errors: 0, warnings: 0
+	module worklib.fpu_fsgnj:sv
+		errors: 0, warnings: 0
+	module worklib.fpu_fminmax:sv
+		errors: 0, warnings: 0
+	module worklib.fpu_mul_div:sv
+		errors: 0, warnings: 0
+	module worklib.fpu_alu:sv
+		errors: 0, warnings: 0
+	module worklib.fpu_class:sv
+		errors: 0, warnings: 0
+	module worklib.fixedp2floatp:sv
+		errors: 0, warnings: 0
+	module worklib.fixedp2floatp_q32:sv
+		errors: 0, warnings: 0
+                    integer shift_amount = 23 - E;
+                                         |
+xmvlog: *W,VARIST (/home/cc/fpu_uvm/rtl/float_to_fixed.sv,83|41): Local static variable with initializer requires 'static' keyword.
+	module worklib.float_to_fixed:sv
+		errors: 0, warnings: 1
+	module worklib.floating_sqrt:sv
+		errors: 0, warnings: 0
+	module worklib.IF_ID:sv
+		errors: 0, warnings: 0
+	module worklib.ID_EX:sv
+		errors: 0, warnings: 0
+	module worklib.EX_MEM:sv
+		errors: 0, warnings: 0
+	module worklib.MEM_WB:sv
+		errors: 0, warnings: 0
+	module worklib.hazard_detection_unit:sv
+		errors: 0, warnings: 0
+	module worklib.imm_gen:sv
+		errors: 0, warnings: 0
+	module worklib.program_counter:sv
+		errors: 0, warnings: 0
+	module worklib.reg_file:sv
+		errors: 0, warnings: 0
+	module worklib.top_core:sv
+		errors: 0, warnings: 0
+file: /home/cc/fpu_uvm/UVC_fpu/tb/fpu_top.sv
+class top_core_base_test extends uvm_test;
+                                        |
+xmvlog: *E,SVNOTY (fpu_test.sv,3|40): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_base_test)
+                                           |
+xmvlog: *E,SVNOTY (fpu_test.sv,4|43): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_base_test)
+                                           |
+xmvlog: *E,SVEXTK (fpu_test.sv,4|43): expecting a ';' (to terminate a type_declaration).
+    `uvm_component_utils(top_core_base_test)
+                                           |
+xmvlog: *E,SVEXTK (fpu_test.sv,4|43): expecting a ';' (to terminate a type_declaration).
+    `uvm_component_utils(top_core_base_test)
+                                           |
+xmvlog: *E,SVNOTY (fpu_test.sv,4|43): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_base_test)
+                                           |
+xmvlog: *E,EXPSMC (fpu_test.sv,4|43): expecting a semicolon (';') [10.3.1(IEEE)].
+    `uvm_component_utils(top_core_base_test)
+                                           |
+xmvlog: *E,SVNOTY (fpu_test.sv,4|43): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_base_test)
+                                           |
+xmvlog: *E,EXPSMC (fpu_test.sv,4|43): expecting a semicolon (';') [10.3.1(IEEE)].
+    top_core_env env;
+               |
+xmvlog: *E,NOIPRT (fpu_test.sv,6|15): Unrecognized declaration 'top_core_env' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+    function new(string name = "top_core_base_test", uvm_component parent = null);
+                                                                 |
+xmvlog: *E,EXPRPA (fpu_test.sv,12|65): expecting a right parenthesis (')') [A.2.6(IEEE)].
+    function new(string name = "top_core_base_test", uvm_component parent = null);
+                                                                 |
+xmvlog: *E,NOIPRT (fpu_test.sv,12|65): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+    function new(string name = "top_core_base_test", uvm_component parent = null);
+                                                                 |
+xmvlog: *E,NOTINF (fpu_test.sv,12|65): Interfaces are not allowed within tasks [SystemVerilog].
+    function new(string name = "top_core_base_test", uvm_component parent = null);
+                                                                        |
+xmvlog: *E,ILLPDL (fpu_test.sv,12|72): Mixing of ansi & non-ansi style port declaration is not legal.
+    function new(string name = "top_core_base_test", uvm_component parent = null);
+                                                                          |
+xmvlog: *E,EXPSMC (fpu_test.sv,12|74): expecting a semicolon (';') [12.3.2(IEEE)].
+        super.new(name, parent);
+            |
+xmvlog: *E,EXPRPA (fpu_test.sv,13|12): expecting a right parenthesis (')') [A.2.6(IEEE)].
+    virtual function void build_phase(uvm_phase phase);
+                                              |
+xmvlog: *E,SVNOTY (fpu_test.sv,16|46): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    virtual task run_phase(uvm_phase phase);
+                                   |
+xmvlog: *E,SVNOTY (fpu_test.sv,31|35): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+        top_core_base_seq base_seq;
+                        |
+xmvlog: *E,NOIPRT (fpu_test.sv,32|24): Unrecognized declaration 'top_core_base_seq' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+        top_core_base_seq base_seq;
+                        |
+xmvlog: *E,NOTINF (fpu_test.sv,32|24): Interfaces are not allowed within tasks [SystemVerilog].
+        top_core_base_seq base_seq;
+                                 |
+xmvlog: *E,ILLPDL (fpu_test.sv,32|33): Mixing of ansi & non-ansi style port declaration is not legal.
+        phase.raise_objection(this);
+            |
+xmvlog: *E,EXPRPA (fpu_test.sv,34|12): expecting a right parenthesis (')') [A.2.6(IEEE)].
+class top_core_load_test extends top_core_base_test;
+                                                  |
+xmvlog: *E,SVNOTY (fpu_test.sv,54|50): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_load_test)
+                                           |
+xmvlog: *E,SVNOTY (fpu_test.sv,55|43): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_load_test)
+                                           |
+xmvlog: *E,SVEXTK (fpu_test.sv,55|43): expecting a ';' (to terminate a type_declaration).
+    `uvm_component_utils(top_core_load_test)
+                                           |
+xmvlog: *E,SVEXTK (fpu_test.sv,55|43): expecting a ';' (to terminate a type_declaration).
+    `uvm_component_utils(top_core_load_test)
+                                           |
+xmvlog: *E,SVNOTY (fpu_test.sv,55|43): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_load_test)
+                                           |
+xmvlog: *E,EXPSMC (fpu_test.sv,55|43): expecting a semicolon (';') [10.3.1(IEEE)].
+    `uvm_component_utils(top_core_load_test)
+                                           |
+xmvlog: *E,SVNOTY (fpu_test.sv,55|43): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_load_test)
+                                           |
+xmvlog: *E,EXPSMC (fpu_test.sv,55|43): expecting a semicolon (';') [10.3.1(IEEE)].
+    function new(string name = "top_core_load_test", uvm_component parent = null);
+                                                                 |
+xmvlog: *E,EXPRPA (fpu_test.sv,57|65): expecting a right parenthesis (')') [A.2.6(IEEE)].
+    function new(string name = "top_core_load_test", uvm_component parent = null);
+                                                                 |
+xmvlog: *E,NOIPRT (fpu_test.sv,57|65): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+    function new(string name = "top_core_load_test", uvm_component parent = null);
+                                                                 |
+xmvlog: *E,NOTINF (fpu_test.sv,57|65): Interfaces are not allowed within tasks [SystemVerilog].
+    function new(string name = "top_core_load_test", uvm_component parent = null);
+                                                                        |
+xmvlog: *E,ILLPDL (fpu_test.sv,57|72): Mixing of ansi & non-ansi style port declaration is not legal.
+    function new(string name = "top_core_load_test", uvm_component parent = null);
+                                                                          |
+xmvlog: *E,EXPSMC (fpu_test.sv,57|74): expecting a semicolon (';') [12.3.2(IEEE)].
+        super.new(name, parent);
+            |
+xmvlog: *E,EXPRPA (fpu_test.sv,58|12): expecting a right parenthesis (')') [A.2.6(IEEE)].
+    virtual task run_phase(uvm_phase phase);
+                                   |
+xmvlog: *E,SVNOTY (fpu_test.sv,62|35): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+        top_core_load_seq load_seq;
+                        |
+xmvlog: *E,NOIPRT (fpu_test.sv,63|24): Unrecognized declaration 'top_core_load_seq' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+        top_core_load_seq load_seq;
+                        |
+xmvlog: *E,NOTINF (fpu_test.sv,63|24): Interfaces are not allowed within tasks [SystemVerilog].
+        top_core_load_seq load_seq;
+                                 |
+xmvlog: *E,ILLPDL (fpu_test.sv,63|33): Mixing of ansi & non-ansi style port declaration is not legal.
+        phase.raise_objection(this);
+            |
+xmvlog: *E,EXPRPA (fpu_test.sv,65|12): expecting a right parenthesis (')') [A.2.6(IEEE)].
+class top_core_store_test extends top_core_base_test;
+                                                   |
+xmvlog: *E,SVNOTY (fpu_test.sv,84|51): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_store_test)
+                                            |
+xmvlog: *E,SVNOTY (fpu_test.sv,85|44): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_store_test)
+                                            |
+xmvlog: *E,SVEXTK (fpu_test.sv,85|44): expecting a ';' (to terminate a type_declaration).
+    `uvm_component_utils(top_core_store_test)
+                                            |
+xmvlog: *E,SVEXTK (fpu_test.sv,85|44): expecting a ';' (to terminate a type_declaration).
+    `uvm_component_utils(top_core_store_test)
+                                            |
+xmvlog: *E,SVNOTY (fpu_test.sv,85|44): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_store_test)
+                                            |
+xmvlog: *E,EXPSMC (fpu_test.sv,85|44): expecting a semicolon (';') [10.3.1(IEEE)].
+    `uvm_component_utils(top_core_store_test)
+                                            |
+xmvlog: *E,SVNOTY (fpu_test.sv,85|44): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(top_core_store_test)
+                                            |
+xmvlog: *E,EXPSMC (fpu_test.sv,85|44): expecting a semicolon (';') [10.3.1(IEEE)].
+    function new(string name = "top_core_store_test", uvm_component parent = null);
+                                                                  |
+xmvlog: *E,EXPRPA (fpu_test.sv,87|66): expecting a right parenthesis (')') [A.2.6(IEEE)].
+    function new(string name = "top_core_store_test", uvm_component parent = null);
+                                                                  |
+xmvlog: *E,NOIPRT (fpu_test.sv,87|66): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+    function new(string name = "top_core_store_test", uvm_component parent = null);
+                                                                  |
+xmvlog: *E,NOTINF (fpu_test.sv,87|66): Interfaces are not allowed within tasks [SystemVerilog].
+    function new(string name = "top_core_store_test", uvm_component parent = null);
+                                                                         |
+xmvlog: *E,ILLPDL (fpu_test.sv,87|73): Mixing of ansi & non-ansi style port declaration is not legal.
+    function new(string name = "top_core_store_test", uvm_component parent = null);
+                                                                           |
+xmvlog: *E,EXPSMC (fpu_test.sv,87|75): expecting a semicolon (';') [12.3.2(IEEE)].
+        super.new(name, parent);
+            |
+xmvlog: *E,EXPRPA (fpu_test.sv,88|12): expecting a right parenthesis (')') [A.2.6(IEEE)].
+    virtual task run_phase(uvm_phase phase);
+                                   |
+xmvlog: *E,SVNOTY (fpu_test.sv,92|35): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+        top_core_store_seq store_seq;
+                         |
+xmvlog: *E,NOIPRT (fpu_test.sv,93|25): Unrecognized declaration 'top_core_store_seq' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+        top_core_store_seq store_seq;
+                         |
+xmvlog: *E,NOTINF (fpu_test.sv,93|25): Interfaces are not allowed within tasks [SystemVerilog].
+        top_core_store_seq store_seq;
+                                   |
+xmvlog: *E,ILLPDL (fpu_test.sv,93|35): Mixing of ansi & non-ansi style port declaration is not legal.
+        phase.raise_objection(this);
+            |
+xmvlog: *E,EXPRPA (fpu_test.sv,95|12): expecting a right parenthesis (')') [A.2.6(IEEE)].
+class riscv_f_extension_test extends top_core_base_test;
+                                                      |
+xmvlog: *E,SVNOTY (fpu_test.sv,115|54): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(riscv_f_extension_test)
+                                               |
+xmvlog: *E,SVNOTY (fpu_test.sv,116|47): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(riscv_f_extension_test)
+                                               |
+xmvlog: *E,SVEXTK (fpu_test.sv,116|47): expecting a ';' (to terminate a type_declaration).
+    `uvm_component_utils(riscv_f_extension_test)
+                                               |
+xmvlog: *E,SVEXTK (fpu_test.sv,116|47): expecting a ';' (to terminate a type_declaration).
+    `uvm_component_utils(riscv_f_extension_test)
+                                               |
+xmvlog: *E,SVNOTY (fpu_test.sv,116|47): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(riscv_f_extension_test)
+                                               |
+xmvlog: *E,EXPSMC (fpu_test.sv,116|47): expecting a semicolon (';') [10.3.1(IEEE)].
+    `uvm_component_utils(riscv_f_extension_test)
+                                               |
+xmvlog: *E,SVNOTY (fpu_test.sv,116|47): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+    `uvm_component_utils(riscv_f_extension_test)
+                                               |
+xmvlog: *E,EXPSMC (fpu_test.sv,116|47): expecting a semicolon (';') [10.3.1(IEEE)].
+    function new(string name = "riscv_f_extension_test", uvm_component parent = null);
+                                                                     |
+xmvlog: *E,EXPRPA (fpu_test.sv,118|69): expecting a right parenthesis (')') [A.2.6(IEEE)].
+    function new(string name = "riscv_f_extension_test", uvm_component parent = null);
+                                                                     |
+xmvlog: *E,NOIPRT (fpu_test.sv,118|69): Unrecognized declaration 'uvm_component' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+    function new(string name = "riscv_f_extension_test", uvm_component parent = null);
+                                                                     |
+xmvlog: *E,NOTINF (fpu_test.sv,118|69): Interfaces are not allowed within tasks [SystemVerilog].
+    function new(string name = "riscv_f_extension_test", uvm_component parent = null);
+                                                                            |
+xmvlog: *E,ILLPDL (fpu_test.sv,118|76): Mixing of ansi & non-ansi style port declaration is not legal.
+    function new(string name = "riscv_f_extension_test", uvm_component parent = null);
+                                                                              |
+xmvlog: *E,EXPSMC (fpu_test.sv,118|78): expecting a semicolon (';') [12.3.2(IEEE)].
+        super.new(name, parent);
+            |
+xmvlog: *E,EXPRPA (fpu_test.sv,119|12): expecting a right parenthesis (')') [A.2.6(IEEE)].
+    virtual task run_phase(uvm_phase phase);
+                                   |
+xmvlog: *E,SVNOTY (fpu_test.sv,123|35): Syntactically this identifier appears to begin a datatype but it does not refer to a visible datatype in the current scope.
+        riscv_f_extension_seq f_seq;
+                            |
+xmvlog: *E,NOIPRT (fpu_test.sv,124|28): Unrecognized declaration 'riscv_f_extension_seq' could be an unsupported keyword, a spelling mistake or missing instance port list '()' [SystemVerilog].
+        riscv_f_extension_seq f_seq;
+                            |
+xmvlog: *E,NOTINF (fpu_test.sv,124|28): Interfaces are not allowed within tasks [SystemVerilog].
+        riscv_f_extension_seq f_seq;
+                                  |
+xmvlog: *E,ILLPDL (fpu_test.sv,124|34): Mixing of ansi & non-ansi style port declaration is not legal.
+        phase.raise_objection(this);
+            |
+xmvlog: *E,EXPRPA (fpu_test.sv,126|12): expecting a right parenthesis (')') [A.2.6(IEEE)].
+    import riscv_instruction_pkg::*;
+                               |
+xmvlog: *E,NOPBIND (/home/cc/fpu_uvm/UVC_fpu/tb/fpu_top.sv,8|31): Package riscv_instruction_pkg could not be bound.
+    import fpu_pkg::*;
+                 |
+xmvlog: *E,NOPBIND (/home/cc/fpu_uvm/UVC_fpu/tb/fpu_top.sv,9|17): Package fpu_pkg could not be bound.
+	module worklib.top_tb:sv
+		errors: 2, warnings: 0
+	Total errors/warnings found outside modules and primitives:
+		errors: 78, warnings: 17
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun(64)	23.09-s006: Exiting on Dec 09, 2025 at 18:24:43 PKT  (total: 00:00:01)
