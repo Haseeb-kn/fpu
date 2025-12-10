@@ -4,6 +4,6 @@
 //
 -sv
 -timescale
-1ns/1ps
+1ns/1ns
 -f
 run.f

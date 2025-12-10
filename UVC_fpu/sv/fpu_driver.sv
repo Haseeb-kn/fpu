@@ -1,7 +1,7 @@
 
 
 
-class top_core_driver extends uvm_driver #(top_core_seq_item);
+class top_core_driver extends uvm_driver #(fpu_packet);
     `uvm_component_utils(top_core_driver)
     
     virtual top_core_if vif;
@@ -40,7 +40,7 @@ class top_core_driver extends uvm_driver #(top_core_seq_item);
         `uvm_info(get_type_name(), "Reset released", UVM_LOW)
     endtask
     
-    virtual task drive_transaction(top_core_seq_item item);
+    virtual task drive_transaction(fpu_packet item);
         `uvm_info(get_type_name(), $sformatf("Driving transaction:\n%s", item.convert2string()), UVM_HIGH)
         
         // Drive inputs

@@ -1,12 +1,14 @@
 `timescale 1ns/1ps
 
+
+
+import uvm_pkg::*;
 `include "uvm_macros.svh"
+import fpu_pkg::*;
 `include "fpu_test.sv"
 module top_tb;
     
-    import uvm_pkg::*;
-    import riscv_instruction_pkg::*;
-    import fpu_pkg::*;
+    
     // Clock and reset
     logic clk;
     logic rst;

@@ -1,5 +1,6 @@
-
-
+import uvm_pkg::*;
+`include "uvm_macros.svh"
+import fpu_pkg::*;
 class top_core_base_test extends uvm_test;
     `uvm_component_utils(top_core_base_test)
     

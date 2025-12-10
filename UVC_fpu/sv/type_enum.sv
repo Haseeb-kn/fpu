@@ -1,5 +1,3 @@
-
-
 package riscv_instruction_pkg;
     
     // RISC-V F Extension Opcodes
@@ -26,23 +24,23 @@ package riscv_instruction_pkg;
         OP_SYSTEM  = 7'b1110011
     } opcode_e;
     
-    // Floating-point instruction funct7 codes
+    // Floating-point instruction funct7 codes - FIXED DUPLICATE VALUES
     typedef enum logic [6:2] {
         FADD_S     = 5'b00000,
         FSUB_S     = 5'b00001,
         FMUL_S     = 5'b00010,
         FDIV_S     = 5'b00011,
         FSQRT_S    = 5'b01011,
-        FSGNJ_S    = 5'b00100,
-        FSGNJN_S   = 5'b00100,
-        FSGNJX_S   = 5'b00100,
-        FMINMAX_S  = 5'b00101,
+        FSGNJ_S    = 5'b00100,  // funct3 = 000
+        FSGNJN_S   = 5'b00101,  // CHANGED: Different value (funct3 = 001)
+        FSGNJX_S   = 5'b00110,  // CHANGED: Different value (funct3 = 010)
+        FMINMAX_S  = 5'b00111,  // funct3 = 000 for FMIN, 001 for FMAX
         FCVT_W_S   = 5'b11000,
         FCVT_S_W   = 5'b11010,
-        FCMP_S     = 5'b10100,
-        FCLASS_S   = 5'b11100,
-        FMV_X_W    = 5'b11100,
-        FMV_W_X    = 5'b11110
+        FCMP_S     = 5'b10100,  // funct3 = 010 for FEQ, 001 for FLT, 000 for FLE
+        FCLASS_S   = 5'b11100,  // funct3 = 001
+        FMV_X_W    = 5'b11101,  // CHANGED: Different value (funct3 = 000)
+        FMV_W_X    = 5'b11110   // funct3 = 000
     } funct7_e;
     
     // Rounding modes
@@ -130,3 +128,5 @@ package riscv_instruction_pkg;
     endfunction
     
 endpackage
+
+

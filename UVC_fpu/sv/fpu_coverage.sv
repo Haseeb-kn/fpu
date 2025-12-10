@@ -1,6 +1,6 @@
 
 
-class top_core_coverage extends uvm_subscriber #(top_core_seq_item);
+class top_core_coverage extends uvm_subscriber #(fpu_packet);
     `uvm_component_utils(top_core_coverage)
     
     // Coverage groups
@@ -96,7 +96,7 @@ class top_core_coverage extends uvm_subscriber #(top_core_seq_item);
         
     endgroup
     
-    top_core_seq_item trans_item;
+    fpu_packet trans_item;
     
     function new(string name = "top_core_coverage", uvm_component parent = null);
         super.new(name, parent);
@@ -104,7 +104,7 @@ class top_core_coverage extends uvm_subscriber #(top_core_seq_item);
         floating_point_cg = new();
     endfunction
     
-    virtual function void write(top_core_seq_item t);
+    virtual function void write(fpu_packet t);
         trans_item = t;
         
         // Sample coverage
@@ -116,13 +116,16 @@ class top_core_coverage extends uvm_subscriber #(top_core_seq_item);
     endfunction
     
     virtual function void report_phase(uvm_phase phase);
-        super.report_phase(phase);
+real instr_cov, fp_cov;        
+super.report_phase(phase);
         
-        `uvm_info(get_type_name(), "Coverage Report:", UVM_LOW)
-        `uvm_info(get_type_name(), $sformatf("Instruction Coverage: %0.2f%%", 
-                  instruction_cg.get_coverage()), UVM_LOW)
-        `uvm_info(get_type_name(), $sformatf("Floating-Point Coverage: %0.2f%%", 
-                  floating_point_cg.get_coverage()), UVM_LOW)
+        
+        instr_cov = instruction_cg.get_coverage();
+        fp_cov = floating_point_cg.get_coverage();
+        
+        `uvm_info(get_type_name(), "=== Coverage Report ===", UVM_NONE)
+        `uvm_info(get_type_name(), $sformatf("Instruction Coverage: %.2f%%", instr_cov), UVM_NONE)
+        `uvm_info(get_type_name(), $sformatf("Floating-Point Coverage: %.2f%%", fp_cov), UVM_NONE)
     endfunction
     
 endclass

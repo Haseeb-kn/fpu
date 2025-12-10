@@ -10,9 +10,9 @@
 UVM_PLI
 -sv
 -INCDIR
-/home/cc/fpu_uvm/UVC_fpu/tb/sv
+/home/cc/fpu_uvm/UVC_fpu/sv
 -INCDIR
-/home/cc/fpu_uvm/UVC_fpu/tb/tb
+/home/cc/fpu_uvm/UVC_fpu/tb
 -INCDIR
 /home/cc/fpu_uvm/rtl
 /home/cc/fpu_uvm/UVC_fpu/sv/fpu_pkg.sv

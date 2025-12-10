@@ -1,5 +1,5 @@
 
-class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
+class top_core_base_seq extends uvm_sequence #(fpu_packet);
     `uvm_object_utils(top_core_base_seq)
     
     // Configuration
@@ -18,12 +18,12 @@ class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
     endfunction
     
     virtual task body();
-        top_core_seq_item item;
+        fpu_packet item;
         
         `uvm_info(get_type_name(), $sformatf("Starting base sequence with %0d transactions", num_transactions), UVM_LOW)
         
         for (int i = 0; i < num_transactions; i++) begin
-            item = top_core_seq_item::type_id::create($sformatf("item_%0d", i));
+            item = fpu_packet::type_id::create($sformatf("item_%0d", i));
             start_item(item);
             
             if (!item.randomize() with {
@@ -64,7 +64,7 @@ class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
     endtask
     
     // Generate specific instruction
-    virtual function void generate_instruction(top_core_seq_item item);
+    virtual function void generate_instruction(fpu_packet item);
         case (item.instr_category)
             INSTR_CAT_FLOAT: generate_fp_instruction(item);
             INSTR_CAT_LOAD:  generate_load_instruction(item);
@@ -78,7 +78,7 @@ class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
     endfunction
     
     // Generate floating-point instruction
-    virtual function void generate_fp_instruction(top_core_seq_item item);
+    virtual function void generate_fp_instruction(fpu_packet item);
         randcase
             // Basic FP ops
             30: generate_fp_arithmetic(item);
@@ -92,7 +92,7 @@ class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
     endfunction
     
     // Generate FP arithmetic (FADD.S, FSUB.S, FMUL.S, FDIV.S)
-    virtual function void generate_fp_arithmetic(top_core_seq_item item);
+    virtual function void generate_fp_arithmetic(fpu_packet item);
         static string ops[] = {"FADD", "FSUB", "FMUL", "FDIV"};
         string op = ops[$urandom_range(0, 3)];
         logic [4:0] rs1 = $urandom_range(0, 31);
@@ -117,7 +117,7 @@ class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
     endfunction
     
     // Generate fused multiply-add instructions
-    virtual function void generate_fp_fused(top_core_seq_item item);
+    virtual function void generate_fp_fused(fpu_packet item);
         static opcode_e ops[] = {OP_FMADD, OP_FMSUB, OP_FNMSUB, OP_FNMADD};
         opcode_e op = ops[$urandom_range(0, 3)];
         logic [4:0] rs1 = $urandom_range(0, 31);
@@ -138,7 +138,7 @@ class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
     endfunction
     
     // Generate load instruction
-    virtual function void generate_load_instruction(top_core_seq_item item);
+    virtual function void generate_load_instruction(fpu_packet item);
         // Simple ADDI for address calculation
         item.instruction = {12'h100, 5'd1, 3'b000, 5'd2, 7'b0010011}; // addi x2, x1, 0x100
         item.dmem_dataIN = $urandom();
@@ -147,7 +147,7 @@ class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
     endfunction
     
     // Generate store instruction
-    virtual function void generate_store_instruction(top_core_seq_item item);
+    virtual function void generate_store_instruction(fpu_packet item);
         // Simple SW instruction
         item.instruction = {7'h00, 5'd2, 5'd1, 3'b010, 5'h00, 7'b0100011}; // sw x2, 0(x1)
         
@@ -155,7 +155,7 @@ class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
     endfunction
     
     // Generate branch instruction
-    virtual function void generate_branch_instruction(top_core_seq_item item);
+    virtual function void generate_branch_instruction(fpu_packet item);
         // BEQ instruction
         item.instruction = {7'h00, 5'd2, 5'd1, 3'b000, 4'h0, 1'b1, 6'h00, 7'b1100011}; // beq x1, x2, +4
         
@@ -163,7 +163,7 @@ class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
     endfunction
     
     // Generate integer instruction
-    virtual function void generate_integer_instruction(top_core_seq_item item);
+    virtual function void generate_integer_instruction(fpu_packet item);
         // Simple ADD instruction
         item.instruction = {7'h00, 5'd2, 5'd1, 3'b000, 5'd3, 7'b0110011}; // add x3, x1, x2
         
@@ -171,23 +171,23 @@ class top_core_base_seq extends uvm_sequence #(top_core_seq_item);
     endfunction
     
     // Additional FP instruction generators (stubs - implement as needed)
-    virtual function void generate_fp_conversion(top_core_seq_item item);
+    virtual function void generate_fp_conversion(fpu_packet item);
         item.instruction = {5'b11000, 5'd0, 5'd1, 3'b000, 5'd2, OP_FP}; // FCVT.W.S
     endfunction
     
-    virtual function void generate_fp_compare(top_core_seq_item item);
+    virtual function void generate_fp_compare(fpu_packet item);
         item.instruction = {5'b10100, 5'd2, 5'd1, 3'b010, 5'd3, OP_FP}; // FEQ.S
     endfunction
     
-    virtual function void generate_fp_move(top_core_seq_item item);
+    virtual function void generate_fp_move(fpu_packet item);
         item.instruction = {5'b11100, 5'd0, 5'd1, 3'b000, 5'd2, OP_FP}; // FMV.X.W
     endfunction
     
-    virtual function void generate_fp_classify(top_core_seq_item item);
+    virtual function void generate_fp_classify(fpu_packet item);
         item.instruction = {5'b11100, 5'd0, 5'd1, 3'b001, 5'd2, OP_FP}; // FCLASS.S
     endfunction
     
-    virtual function void generate_fp_minmax(top_core_seq_item item);
+    virtual function void generate_fp_minmax(fpu_packet item);
         item.instruction = {5'b00101, 5'd2, 5'd1, 3'b000, 5'd3, OP_FP}; // FMIN.S
     endfunction
     
@@ -209,12 +209,12 @@ class top_core_load_seq extends top_core_base_seq;
     endfunction
     
     virtual task body();
-        top_core_seq_item item;
+        fpu_packet item;
         
         `uvm_info(get_type_name(), $sformatf("Starting load sequence with %0d loads", num_loads), UVM_LOW)
         
         for (int i = 0; i < num_loads; i++) begin
-            item = top_core_seq_item::type_id::create($sformatf("load_item_%0d", i));
+            item = fpu_packet::type_id::create($sformatf("load_item_%0d", i));
             start_item(item);
             
             if (!item.randomize() with {
@@ -251,12 +251,12 @@ class top_core_store_seq extends top_core_base_seq;
     endfunction
     
     virtual task body();
-        top_core_seq_item item;
+        fpu_packet item;
         
         `uvm_info(get_type_name(), $sformatf("Starting store sequence with %0d stores", num_stores), UVM_LOW)
         
         for (int i = 0; i < num_stores; i++) begin
-            item = top_core_seq_item::type_id::create($sformatf("store_item_%0d", i));
+            item = fpu_packet::type_id::create($sformatf("store_item_%0d", i));
             start_item(item);
             
             if (!item.randomize() with {
@@ -288,12 +288,12 @@ class top_core_branch_seq extends top_core_base_seq;
     endfunction
     
     virtual task body();
-        top_core_seq_item item;
+        fpu_packet item;
         
         `uvm_info(get_type_name(), $sformatf("Starting branch sequence with %0d branches", num_branches), UVM_LOW)
         
         for (int i = 0; i < num_branches; i++) begin
-            item = top_core_seq_item::type_id::create($sformatf("branch_item_%0d", i));
+            item = fpu_packet::type_id::create($sformatf("branch_item_%0d", i));
             start_item(item);
             
             if (!item.randomize() with {
@@ -328,7 +328,7 @@ class riscv_f_extension_seq extends top_core_base_seq;
     endfunction
     
     virtual task body();
-        top_core_seq_item item;
+        fpu_packet item;
         
         `uvm_info(get_type_name(), "Starting comprehensive F-extension test sequence", UVM_LOW)
         
@@ -347,11 +347,11 @@ class riscv_f_extension_seq extends top_core_base_seq;
     
     virtual task test_fp_arithmetic();
         string ops[] = {"FADD", "FSUB", "FMUL", "FDIV"};
-        top_core_seq_item item;
+        fpu_packet item;
         
         foreach (ops[op]) begin
             for (int i = 0; i < num_fp_tests/ops.size(); i++) begin
-                item = top_core_seq_item::type_id::create($sformatf("fp_arith_%s_%0d", ops[op], i));
+                item = fpu_packet::type_id::create($sformatf("fp_arith_%s_%0d", ops[op], i));
                 start_item(item);
                 
                 item.latency = $urandom_range(3, 8);
@@ -365,11 +365,11 @@ class riscv_f_extension_seq extends top_core_base_seq;
     
     virtual task test_fp_fused_ops();
         string ops[] = {"FMADD", "FMSUB", "FNMSUB", "FNMADD"};
-        top_core_seq_item item;
+        fpu_packet item;
         
         foreach (ops[op]) begin
             for (int i = 0; i < num_fp_tests/ops.size(); i++) begin
-                item = top_core_seq_item::type_id::create($sformatf("fp_fused_%s_%0d", ops[op], i));
+                item = fpu_packet::type_id::create($sformatf("fp_fused_%s_%0d", ops[op], i));
                 start_item(item);
                 
                 item.latency = $urandom_range(4, 10);
@@ -381,7 +381,7 @@ class riscv_f_extension_seq extends top_core_base_seq;
         end
     endtask
     
-    virtual function void generate_fp_instruction_specific(top_core_seq_item item, string op);
+    virtual function void generate_fp_instruction_specific(fpu_packet item, string op);
         logic [4:0] rs1 = $urandom_range(1, 30);
         logic [4:0] rs2 = $urandom_range(1, 30);
         logic [4:0] rd = $urandom_range(1, 30);
@@ -396,7 +396,7 @@ class riscv_f_extension_seq extends top_core_base_seq;
         endcase
     endfunction
     
-    virtual function void generate_fp_fused_specific(top_core_seq_item item, string op);
+    virtual function void generate_fp_fused_specific(fpu_packet item, string op);
         logic [4:0] rs1 = $urandom_range(1, 30);
         logic [4:0] rs2 = $urandom_range(1, 30);
         logic [4:0] rs3 = $urandom_range(1, 30);

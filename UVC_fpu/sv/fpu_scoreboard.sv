@@ -1,134 +1,221 @@
-
-
-class top_core_scoreboard extends uvm_scoreboard;
-    `uvm_component_utils(top_core_scoreboard)
+class top_core_scoreboard_simple extends uvm_scoreboard;
+    `uvm_component_utils(top_core_scoreboard_simple)
     
-    uvm_analysis_imp #(top_core_seq_item, top_core_scoreboard) item_analysis_export;
+    uvm_analysis_imp #(fpu_packet, top_core_scoreboard_simple) item_analysis_export;
     
+    //===========================================
     // Statistics
+    //===========================================
     int total_transactions = 0;
     int passed_transactions = 0;
     int failed_transactions = 0;
     int fp_transactions = 0;
+    int fp_arithmetic = 0;
+    int fp_fused = 0;
+    int fp_load_store = 0;
     
-    // Reference model (simplified)
-    logic [31:0] reference_regs[32];
-    logic [31:0] reference_fp_regs[32];
-    logic [31:0] reference_pc = 32'h8000_0000;
+    // Reference model
+    logic [31:0] ref_fp_regs[32];
+    logic [31:0] ref_int_regs[32];
+    logic [31:0] ref_pc = 32'h8000_0000;
     
-    function new(string name = "top_core_scoreboard", uvm_component parent = null);
+    // Configuration
+    real fp_tolerance = 0.001;  // Relaxed tolerance for now
+    bit check_exact = 0;
+    
+    function new(string name = "top_core_scoreboard_simple", uvm_component parent = null);
         super.new(name, parent);
         item_analysis_export = new("item_analysis_export", this);
-        
-        // Initialize reference model
-        foreach (reference_regs[i]) reference_regs[i] = i;
-        foreach (reference_fp_regs[i]) reference_fp_regs[i] = {i, 24'h0};
     endfunction
     
-    virtual function void write(top_core_seq_item item);
+    virtual function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+        
+        // Initialize reference model
+        for (int i = 0; i < 32; i++) begin
+            ref_fp_regs[i] = $shortrealtobits(real'(i) + 0.5);
+            ref_int_regs[i] = i;
+        end
+        
+        void'(uvm_config_db#(real)::get(this, "", "fp_tolerance", fp_tolerance));
+        void'(uvm_config_db#(bit)::get(this, "", "check_exact", check_exact));
+    endfunction
+    
+    virtual function void write(fpu_packet item);
         total_transactions++;
         
-        // Update reference model
-        update_reference_model(item);
+        // Calculate expected result
+        calculate_expected(item);
         
-        // Check results
+        // Check transaction
         check_transaction(item);
     endfunction
     
-    virtual function void update_reference_model(top_core_seq_item item);
-        // Simplified reference model update
-        // In a real implementation, this would simulate the RISC-V ISA
+    virtual function void calculate_expected(fpu_packet item);
+        real op1, op2, op3, result;
         
-        // Update PC (simplified)
-        reference_pc += 4;
+        ref_pc += 4;
         
-        // For floating-point operations, update FP register file
         if (item.instr_category == INSTR_CAT_FLOAT) begin
             fp_transactions++;
-            // Basic FP operation simulation (placeholder)
-            if (item.opcode == OP_FP) begin
-                // Simulate some basic operations
-                case (item.funct7[6:2])
-                    FADD_S: reference_fp_regs[item.rd] = item.fp_operand1 + item.fp_operand2;
-                    // Add other operations as needed
-                endcase
+            
+            // Get operands
+            op1 = $bitstoshortreal(item.fp_operand1);
+            op2 = $bitstoshortreal(item.fp_operand2);
+            op3 = $bitstoshortreal(item.fp_operand3);
+            
+            case (item.fp_operation)
+                item.FP_OP_ADD: begin
+                    result = op1 + op2;
+                    fp_arithmetic++;
+                end
+                item.FP_OP_SUB: begin
+                    result = op1 - op2;
+                    fp_arithmetic++;
+                end
+                item.FP_OP_MUL: begin
+                    result = op1 * op2;
+                    fp_arithmetic++;
+                end
+                item.FP_OP_DIV: begin
+                    result = (op2 != 0.0) ? (op1 / op2) : 0.0;
+                    fp_arithmetic++;
+                end
+                item.FP_OP_SQRT: begin
+                    result = (op1 >= 0.0) ? $sqrt(op1) : 0.0;
+                    fp_arithmetic++;
+                end
+                item.FP_OP_FMADD: begin
+                    result = (op1 * op2) + op3;
+                    fp_fused++;
+                end
+                item.FP_OP_FMSUB: begin
+                    result = (op1 * op2) - op3;
+                    fp_fused++;
+                end
+                item.FP_OP_FNMSUB: begin
+                    result = -(op1 * op2) + op3;
+                    fp_fused++;
+                end
+                item.FP_OP_FNMADD: begin
+                    result = -(op1 * op2) - op3;
+                    fp_fused++;
+                end
+                default: result = 0.0;
+            endcase
+            
+            // Store expected result
+            item.exp_fp_result = $shortrealtobits(result);
+            ref_fp_regs[item.rd] = item.exp_fp_result;
+        end
+        
+        item.exp_pc_curr = ref_pc - 4;
+    endfunction
+    
+    virtual function void check_transaction(fpu_packet item);
+    bit passed = 1;
+    string msg = "";
+    real dut_val, exp_val, error;
+    
+    // Check PC
+    if (item.pc_curr != item.exp_pc_curr) begin
+        // PC mismatch - may be acceptable if pipeline is stalling
+        `uvm_info(get_type_name(),
+                 $sformatf("PC: Expected=0x%08h, Got=0x%08h",
+                          item.exp_pc_curr, item.pc_curr),
+                 UVM_HIGH)
+    end
+    
+    // Check FP results
+    if (item.instr_category == INSTR_CAT_FLOAT) begin
+        if (item.opcode inside {OP_FP, OP_FMADD, OP_FMSUB, OP_FNMSUB, OP_FNMADD}) begin
+            dut_val = $bitstoshortreal(item.dmem_dataOUT);
+            exp_val = $bitstoshortreal(item.exp_fp_result);
+            
+            // FIXED: Use manual absolute value for real numbers
+            error = (dut_val > exp_val) ? (dut_val - exp_val) : (exp_val - dut_val);
+            
+            if (check_exact) begin
+                // Exact bit-level comparison
+                if (item.dmem_dataOUT != item.exp_fp_result) begin
+                    passed = 0;
+                    msg = $sformatf("\n  Exact mismatch: Exp=0x%08h, Got=0x%08h",
+                                   item.exp_fp_result, item.dmem_dataOUT);
+                end
+            end else begin
+                // Tolerance-based comparison
+                if (error > fp_tolerance) begin
+                    passed = 0;
+                    msg = $sformatf("\n  Value mismatch: Exp=%f, Got=%f, Error=%e",
+                                   exp_val, dut_val, error);
+                end
             end
         end
-    endfunction
+    end
     
-    virtual function void check_transaction(top_core_seq_item item);
-        bit passed = 1;
-        string error_msg = "";
-        
-        // Basic sanity checks
-        if (item.dmem_addr > 32'hFFFF_FFFF) begin
-            passed = 0;
-            error_msg = $sformatf("Invalid dmem_addr: 0x%08h", item.dmem_addr);
-        end
-        
-        // Check PC increment (simplified)
-        // if (item.pc_curr != reference_pc) begin
-        //     passed = 0;
-        //     error_msg = $sformatf("PC mismatch: Expected 0x%08h, Got 0x%08h", 
-        //                           reference_pc, item.pc_curr);
-        // end
-        
-        // Update statistics
-        if (passed) begin
-            passed_transactions++;
-            `uvm_info(get_type_name(), 
-                     $sformatf("Transaction %0d PASSED: %s", 
-                     total_transactions, item.opcode.name()), 
-                     UVM_HIGH)
-        end else begin
-            failed_transactions++;
-            `uvm_error("SCOREBOARD", 
-                      $sformatf("Transaction %0d FAILED - %s\n%s", 
-                      total_transactions, error_msg, item.convert2string()))
-        end
-    endfunction
+    // Update statistics
+    if (passed) begin
+        passed_transactions++;
+        `uvm_info(get_type_name(),
+                 $sformatf("✓ PASS [%0d]: %s",
+                          total_transactions, item.get_instruction_name()),
+                 UVM_HIGH)
+    end else begin
+        failed_transactions++;
+        `uvm_error("CHECK_FAIL",
+                  $sformatf("✗ FAIL [%0d]: %s%s\n%s",
+                           total_transactions,
+                           item.get_instruction_name(),
+                           msg,
+                           item.convert2string()))
+    end
+endfunction
     
     virtual function void report_phase(uvm_phase phase);
+        real pass_rate, fp_percent;
+        
         super.report_phase(phase);
         
-        `uvm_info("SCOREBOARD_REPORT", 
-                 $sformatf("\n=== Scoreboard Summary ===\n"
-                         + "Total Transactions:   %0d\n"
-                         + "Passed:              %0d\n"
-                         + "Failed:              %0d\n"
-                         + "FP Transactions:     %0d\n"
-                         + "Pass Rate:           %0.1f%%",
-                         total_transactions, passed_transactions, 
-                         failed_transactions, fp_transactions,
-                         (total_transactions > 0) ? 
-                         (100.0 * passed_transactions / total_transactions) : 0.0), 
-                 UVM_NONE)
-    endfunction
-    
-    // Floating-point reference model helpers
-    virtual function real fp32_to_real(input logic [31:0] fp32);
-        // Convert IEEE 754 single-precision to real
-        logic sign = fp32[31];
-        logic [7:0] exponent = fp32[30:23];
-        logic [22:0] mantissa = fp32[22:0];
-        real result;
-        
-        if (exponent == 8'hFF) begin
-            // NaN or Infinity
-            return 0.0;
-        end else if (exponent == 0) begin
-            // Denormalized
-            result = mantissa * (2.0 ** -149);
+        if (total_transactions > 0) begin
+            pass_rate = 100.0 * passed_transactions / total_transactions;
+            fp_percent = 100.0 * fp_transactions / total_transactions;
         end else begin
-            // Normalized
-            result = (1.0 + mantissa * (2.0 ** -23)) * (2.0 ** (exponent - 127));
+            pass_rate = 0.0;
+            fp_percent = 0.0;
         end
         
-        return sign ? -result : result;
-    endfunction
-    
-    virtual function logic [31:0] real_to_fp32(input real val);
-        return $shortrealtobits(val);
+        `uvm_info("SCOREBOARD_REPORT",
+                 $sformatf("\n\n" +
+                         "╔════════════════════════════════════════════════╗\n" +
+                         "║       FPU VERIFICATION SCOREBOARD REPORT       ║\n" +
+                         "╠════════════════════════════════════════════════╣\n" +
+                         "║ Total Instructions:      %8d           ║\n" +
+                         "║ FP Instructions:         %8d (%5.1f%%)    ║\n" +
+                         "║   - Arithmetic Ops:      %8d           ║\n" +
+                         "║   - Fused Ops:           %8d           ║\n" +
+                         "║   - Load/Store:          %8d           ║\n" +
+                         "╠════════════════════════════════════════════════╣\n" +
+                         "║ Passed:                  %8d           ║\n" +
+                         "║ Failed:                  %8d           ║\n" +
+                         "║ Pass Rate:               %7.2f%%          ║\n" +
+                         "╚════════════════════════════════════════════════╝\n",
+                         total_transactions,
+                         fp_transactions, fp_percent,
+                         fp_arithmetic,
+                         fp_fused,
+                         fp_load_store,
+                         passed_transactions,
+                         failed_transactions,
+                         pass_rate),
+                 UVM_NONE)
+        
+        if (failed_transactions == 0 && total_transactions > 0) begin
+            `uvm_info("VERDICT", "\n★★★ ALL TESTS PASSED ★★★\n", UVM_NONE)
+        end else if (total_transactions == 0) begin
+            `uvm_warning("VERDICT", "\n⚠ NO TRANSACTIONS PROCESSED ⚠\n")
+        end else begin
+            `uvm_error("VERDICT", $sformatf("\n✗ %0d TESTS FAILED ✗\n", failed_transactions))
+        end
     endfunction
     
 endclass
