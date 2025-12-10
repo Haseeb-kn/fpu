@@ -1,0 +1,27 @@
+# Xcelium build directories
+xcelium.d/
+cov_work/
+*.ucd
+*.ucm
+*.log
+*.history
+*.ts
+*.vst
+*.so
+*.pak
+packages_ts.d/
+*.args
+*.env
+
+# Simulation outputs
+*.txt
+*.lst
+*.xml
+
+# Spike build
+spike/*.o
+spike/*.so
+
+# Backup
+*~
+
